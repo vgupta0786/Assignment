@@ -21,6 +21,7 @@ public class RockPaperScissorProblem {
         Map<SelectionType, SelectionType> hm = new HashMap<SelectionType, SelectionType>();
         hm.put(SelectionType.ROCK, SelectionType.SCISSORS);
         hm.put(SelectionType.SCISSORS, SelectionType.PAPER);
+        hm.put(SelectionType.PAPER, SelectionType.ROCK);
         if (firstChoice != secondChoice)
             return hm.get(firstChoice) == secondChoice ? 1 : -1;
 
