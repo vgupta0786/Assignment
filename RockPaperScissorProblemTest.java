@@ -21,9 +21,16 @@ public class RockPaperScissorProblemTest {
     }
     
     @Test
-    public final void whenScissorsAndRockAreSelectedThenReturnMinus1() {
+    public final void whenScissorAndRockAreSelectedThenReturnMinus1() {
         Assert.assertEquals(-1, rPSObj.compareChoices("Scissors", "Rock"));
     }
+    
+    @Test
+    public final void whenScisssorAndPaperAreSelectedThenReturn1() {
+        Assert.assertEquals(1, rPSObj.compareChoices("Scissors", "Paper"));
+    }
+    
+   
     
     
     
