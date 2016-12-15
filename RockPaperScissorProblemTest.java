@@ -1,5 +1,7 @@
 package exercise1;
 
+
+import org.junit.Assert;
 import org.junit.Test;
 
 
@@ -11,6 +13,14 @@ public class RockPaperScissorProblemTest {
     public final void whenWrongInputsAreUsedThenExceptionIsThrown() {
         rPSObj.compareChoices("A", "B");
     }
+    
+
+    @Test
+    public final void whenInputsAreSameThenReturn0() {
+        Assert.assertEquals(0, rPSObj.compareChoices("Rock", "Rock"));
+    }
+    
+    
     
     
     
