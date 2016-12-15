@@ -1,5 +1,8 @@
 package exercise1;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class RockPaperScissorProblem {
 
     public int compareChoices(String firstSelection, String secondSelection) {
@@ -14,6 +17,11 @@ public class RockPaperScissorProblem {
         }
         if(firstChoice.equals(secondChoice))
             result=0;
+        
+        Map<SelectionType,SelectionType> hm=new HashMap<SelectionType,SelectionType>();
+        hm.put(SelectionType.ROCK, SelectionType.SCISSORS);
+        if(firstChoice != secondChoice)
+            return hm.get(firstChoice) == secondChoice ? 1 : -1;
         
         return result;
     }
