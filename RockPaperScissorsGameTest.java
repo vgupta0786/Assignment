@@ -20,6 +20,7 @@ public class RockPaperScissorsGameTest {
     private static final RockPaperScissorsGame game = new RockPaperScissorsGame();
 
     private static final String TIE="tie";
+    public static final String FIRST_PLAYER_WIN="player 1 wins";  
 
     /**
      * test playGame method returns not null object
@@ -44,6 +45,15 @@ public class RockPaperScissorsGameTest {
     public final void whenSameInputsAreSelectedThanResultShouldBeTie() {
         assertEquals(game.playGame(ROCK, ROCK).getResult(),
                 RockPaperScissorsGameTest.TIE);
+    }
+    
+    /**
+     * test rock and scissors inputs are given than result should be player1 wins
+     */
+    @Test
+    public final void whenRockAndScissorsAreSelectedThanResultShouldBePlayer1Wins() {
+        assertEquals(game.playGame(ROCK, SCISSORS).getResult(),
+                RockPaperScissorsGameTest.FIRST_PLAYER_WIN);
     }
 
 }
