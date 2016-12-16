@@ -14,9 +14,9 @@ public class RockPaperScissorsGame {
      * @param scndChoice
      * @return
      */
-    public Object playGame(Options frstSelection, Options scndSelection) {
+    public GameResult playGame(Options frstSelection, Options scndSelection) {
         
-        return new Object();
+        return new GameResult();
     }
 
 }
