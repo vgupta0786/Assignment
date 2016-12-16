@@ -2,6 +2,7 @@ package exercise1;
 
 /**
  * RockPaperScissorsGame to decide winner based on players selection
+ * 
  * @author vgup77
  *
  */
@@ -15,8 +16,10 @@ public class RockPaperScissorsGame {
      * @return
      */
     public GameResult playGame(Options frstSelection, Options scndSelection) {
-        
-        return new GameResult();
+        GameResult result = new GameResult();
+        if (frstSelection==scndSelection)
+            result.setResult(GameConstants.TIE);
+        return result;
     }
 
 }
