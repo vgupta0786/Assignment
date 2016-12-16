@@ -16,7 +16,7 @@ public class RockPaperScissorsGame {
      */
     public Object playGame(Options frstSelection, Options scndSelection) {
         
-        return null;
+        return new Object();
     }
 
 }
