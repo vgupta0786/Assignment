@@ -16,15 +16,27 @@ public class FizzBuzzStreams {
      */
     public List<String> printResult(int limit) {
         List<String> stream = new ArrayList<String>();
-        for (int i = 1; i <= limit; i++) {
-            if (i % 3 == 0) {
-                stream.add("Fizz");
-            } else {
-                stream.add(String.valueOf(i));
-            }
+        for (int pos = 1; pos <= limit; pos++) {
+            stream.add(nextElement(pos));
         }
         return stream;
+    }
 
+    /**
+     * to retrieve next element for adding to the stream
+     * 
+     * @param position
+     * @return
+     */
+    public String nextElement(int position) {
+        if (position % 3 == 0) {
+            return "Fizz";
+        }
+        if (position % 5 == 0) {
+            return "Buzz";
+        }
+
+        return String.valueOf(position);
     }
 
 }
