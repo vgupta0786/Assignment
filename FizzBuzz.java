@@ -1,5 +1,8 @@
 package exercise3;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author vgup77
  *
@@ -7,24 +10,12 @@ package exercise3;
 public class FizzBuzz {
 
     /**
-     * accepts integer and prints appropriate result
+     * to print stream in required format
      * 
-     * @param i
+     * @param limit
      */
-    public void printResult(int number) {
-        boolean multipleOf3 = (number % 3 == 0);
-        boolean multipleOf5 = (number % 5 == 0);
-        if (!multipleOf3 && !multipleOf5) {
-            System.out.print(number);
-        }
-        StringBuilder result = new StringBuilder();
-        if (multipleOf3) {
-            result.append("Fizz");
-        }
-        if (multipleOf5) {
-            result.append("Buzz");
-        }
-        System.out.print(result);
+    public List<String> printResult(int limit) {
+        return new ArrayList<String>();
     }
 
 }
