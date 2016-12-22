@@ -11,13 +11,20 @@ public class FizzBuzz {
      * 
      * @param i
      */
-    public void printResult(int i) {
-        if (i % 3 == 0)
-            System.out.print("Fizz");
-        else if (i % 5 == 0)
-            System.out.print("Buzz");
-        else
-            System.out.print(i);
+    public void printResult(int number) {
+        boolean multipleOf3 = (number % 3 == 0);
+        boolean multipleOf5 = (number % 5 == 0);
+        if (!multipleOf3 && !multipleOf5) {
+            System.out.print(number);
+        }
+        StringBuilder result = new StringBuilder();
+        if (multipleOf3) {
+            result.append("Fizz");
+        }
+        if (multipleOf5) {
+            result.append("Buzz");
+        }
+        System.out.print(result);
     }
 
 }
