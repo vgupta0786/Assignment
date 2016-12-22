@@ -43,5 +43,18 @@ public class FizzBuzzStreamsTest {
         expectedStream.add("2");
         assertEquals(expectedStream, fizzBuzz.printResult(2));
     }
+    
+    
+   /**
+    * test when1,2 and 3 are added in stream should read as 1,2 and Fizz
+    */
+    @Test
+   public void when3NumbersAreAddedItShouldReadAsOneTwoFizz() {
+       List<String> expectedStream = new ArrayList<String>();
+       expectedStream.add("1");
+       expectedStream.add("2");
+       expectedStream.add("Fizz");
+       assertEquals(expectedStream, fizzBuzz.printResult(3));
+   }
 
 }
