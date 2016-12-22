@@ -15,10 +15,7 @@ public class FizzBuzz {
      * @param limit
      */
     public List<String> printResult(int limit) {
-        List<String> intStream = new ArrayList<String>();
-        intStream.add("1");
-        intStream.add("2");
-        return intStream;
+        return new ArrayList<String>();
     }
 
 }
