@@ -43,24 +43,23 @@ public class FizzBuzzStreamsTest {
         expectedStream.add("2");
         assertEquals(expectedStream, fizzBuzz.printResult(2));
     }
-    
-    
-   /**
-    * test when1,2 and 3 are added in stream should read as 1,2 and Fizz
-    */
+
+    /**
+     * test when1,2 and 3 are added in stream should read as 1,2 and Fizz
+     */
     @Test
-   public void when3NumbersAreAddedItShouldReadAsOneTwoFizz() {
-       List<String> expectedStream = new ArrayList<String>();
-       expectedStream.add("1");
-       expectedStream.add("2");
-       expectedStream.add("Fizz");
-       assertEquals(expectedStream, fizzBuzz.printResult(3));
-   }
-    
+    public void when3NumbersAreAddedItShouldReadAsOneTwoFizz() {
+        List<String> expectedStream = new ArrayList<String>();
+        expectedStream.add("1");
+        expectedStream.add("2");
+        expectedStream.add("Fizz");
+        assertEquals(expectedStream, fizzBuzz.printResult(3));
+    }
+
     /**
      * test when multiple of 5 are added in stream than it should read as 1,2,Fizz,4,Buzz
      */
-     @Test
+    @Test
     public void whenMultipleOf5AreAddedThanItShouldReadAsBuzz() {
         List<String> expectedStream = new ArrayList<String>();
         expectedStream.add("1");
@@ -69,6 +68,15 @@ public class FizzBuzzStreamsTest {
         expectedStream.add("4");
         expectedStream.add("Buzz");
         assertEquals(expectedStream, fizzBuzz.printResult(5));
-    } 
+    }
+
+    /**
+     * test when multiple of 3 and 5 are added in stream than it should read as FizzBuzz
+     * test to access 15th element which should read as FizzBuzz
+     */
+    @Test
+    public void whenMultipleOf3And5AreAddedThanItShouldReadAsFizzBuzz() {
+        assertEquals("FizzBuzz", fizzBuzz.printResult(15).get(14));
+    }
 
 }
