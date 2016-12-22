@@ -61,4 +61,13 @@ public class FizzBuzzTest {
         fizzBuzz.printResult(3);
         assertEquals("Fizz",outContent.toString());
     }
+    
+    /**
+     * test if 5 is passed it should print buzz
+     */
+    @Test
+    public void When5IsPassedItShouldPrintBuzz(){
+        fizzBuzz.printResult(5);
+        assertEquals("Buzz",outContent.toString());
+    }
 }
