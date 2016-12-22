@@ -14,6 +14,8 @@ public class FizzBuzz {
     public void printResult(int i) {
         if (i == 3)
             System.out.print("Fizz");
+        else if(i==5)
+            System.out.print("Buzz");
         else
             System.out.print(i);
     }
