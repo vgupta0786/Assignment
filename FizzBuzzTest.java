@@ -88,4 +88,13 @@ public class FizzBuzzTest {
         fizzBuzz.printResult(10);
         assertEquals("Buzz",outContent.toString());
     }
+    
+    /**
+     * test when multiple of 3 and 5 are passed it should print FizzBuzz
+     */
+    @Test
+    public void WhenMultipleOf3And5ArePassedItShouldPrintFizzBuzz(){
+        fizzBuzz.printResult(30);
+        assertEquals("FizzBuzz",outContent.toString());
+    }
 }
