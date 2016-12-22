@@ -12,7 +12,7 @@ public class FizzBuzzStreams {
     /**
      * to print stream in required format
      * 
-     * @param limit
+     * @param limit number of elements in the list
      */
     public List<String> printResult(int limit) {
         List<String> stream = new ArrayList<String>();
@@ -29,14 +29,14 @@ public class FizzBuzzStreams {
      * @return
      */
     public String nextElement(int position) {
+        String result = "";
         if (position % 3 == 0) {
-            return "Fizz";
+            result += "Fizz";
         }
         if (position % 5 == 0) {
-            return "Buzz";
+            result += "Buzz";
         }
-
-        return String.valueOf(position);
+        return result.length() > 0 ? result : Integer.toString(position);
     }
 
 }
