@@ -56,5 +56,19 @@ public class FizzBuzzStreamsTest {
        expectedStream.add("Fizz");
        assertEquals(expectedStream, fizzBuzz.printResult(3));
    }
+    
+    /**
+     * test when multiple of 5 are added in stream than it should read as 1,2,Fizz,4,Buzz
+     */
+     @Test
+    public void whenMultipleOf5AreAddedThanItShouldReadAsBuzz() {
+        List<String> expectedStream = new ArrayList<String>();
+        expectedStream.add("1");
+        expectedStream.add("2");
+        expectedStream.add("Fizz");
+        expectedStream.add("4");
+        expectedStream.add("Buzz");
+        assertEquals(expectedStream, fizzBuzz.printResult(5));
+    } 
 
 }
