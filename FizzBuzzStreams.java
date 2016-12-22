@@ -15,10 +15,16 @@ public class FizzBuzzStreams {
      * @param limit
      */
     public List<String> printResult(int limit) {
-        List<String> intStream = new ArrayList<String>();
-        intStream.add("1");
-        intStream.add("2");
-        return intStream;
+        List<String> stream = new ArrayList<String>();
+        for (int i = 1; i <= limit; i++) {
+            if (i % 3 == 0) {
+                stream.add("Fizz");
+            } else {
+                stream.add(String.valueOf(i));
+            }
+        }
+        return stream;
+
     }
 
 }
