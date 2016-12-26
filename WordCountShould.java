@@ -38,4 +38,11 @@ public class WordCountShould {
         assertEquals(new Integer(2), wordCountMap.get("hello"));
         assertEquals(new Integer(1), wordCountMap.get("hi"));
     }
+    
+    @Test
+    public void print_three_diff_words_with_2_dilimiters() {
+        WordCount wordCount = new WordCount();
+        Map<String,Integer> wordCountMap=wordCount.countUniqueWords("hi how&hello"," &");
+        assertEquals(new Integer(1), wordCountMap.get("hello"));
+    }
 }
