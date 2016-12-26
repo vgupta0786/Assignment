@@ -44,5 +44,7 @@ public class WordCountShould {
         WordCount wordCount = new WordCount();
         Map<String,Integer> wordCountMap=wordCount.countUniqueWords("hi how&hello"," &");
         assertEquals(new Integer(1), wordCountMap.get("hello"));
+	assertEquals(new Integer(1), wordCountMap.get("how"));
+	assertEquals(new Integer(1), wordCountMap.get("hi"));
     }
 }
