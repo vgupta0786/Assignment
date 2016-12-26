@@ -42,9 +42,20 @@ public class WordCountShould {
     @Test
     public void print_three_diff_words_with_2_dilimiters() {
         WordCount wordCount = new WordCount();
-        Map<String,Integer> wordCountMap=wordCount.countUniqueWords("hi how&hello"," &");
-        assertEquals(new Integer(1), wordCountMap.get("hello"));
-	assertEquals(new Integer(1), wordCountMap.get("how"));
-	assertEquals(new Integer(1), wordCountMap.get("hi"));
+        Map<String,Integer> wordCountMap=wordCount.countUniqueWords("hi hello&hello"," &");
+        assertEquals(new Integer(2), wordCountMap.get("hello"));
+        assertEquals(new Integer(1), wordCountMap.get("hi"));
     }
+    
+    @Test
+    public void print_many_diff_words_with_many_dilimiters() {
+        WordCount wordCount = new WordCount();
+        Map<String,Integer> wordCountMap=wordCount.countUniqueWords("hey@Man How//are are you you!Doing"," @!//");
+        assertEquals(new Integer(1), wordCountMap.get("hey"));
+        assertEquals(new Integer(1), wordCountMap.get("Man"));
+        assertEquals(new Integer(2), wordCountMap.get("are"));
+        assertEquals(new Integer(2), wordCountMap.get("you"));
+        assertEquals(new Integer(1), wordCountMap.get("Doing"));
+    }
+    
 }
