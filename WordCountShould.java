@@ -30,4 +30,12 @@ public class WordCountShould {
         Map<String, Integer> wordCountMap = wordCount.countUniqueWords("hi hello");
         assertEquals(new Integer(1), wordCountMap.get("hello"));
     }
+    
+    @Test
+    public void print_two_same_and_one_diff_word_and_their_count() {
+        WordCount wordCount = new WordCount();
+        Map<String,Integer> wordCountMap=wordCount.countUniqueWords("hi hello hello");
+        assertEquals(new Integer(2), wordCountMap.get("hello"));
+        assertEquals(new Integer(1), wordCountMap.get("hi"));
+    }
 }
