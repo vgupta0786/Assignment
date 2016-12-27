@@ -2,12 +2,12 @@ package exercise5;
 
 public class PerfectNumber {
 
-    public boolean isPerfectNumber(int number) {
+    public boolean isPerfectNumber(int i) {
         return true;
     }
 
     public boolean isFactor(int factor, int number) {
-        return true;
+        return number % factor == 0;
     }
 
 }
