@@ -11,4 +11,10 @@ public class PerfectNumberTest {
         assertTrue(perfectNumber.isPerfectNumber(6));
     }
 
+    @Test
+    public void should_return_true_As_1_is_factorOf_6() {
+        PerfectNumber perfectNumber = new PerfectNumber();
+        assertTrue(perfectNumber.isFactor(1,6));
+    }
+
 }
