@@ -43,7 +43,7 @@ public class PerfectNumberTest {
         expectedList.add(1);
         assertEquals(expectedList, perfectNumber.factorFor(1));
     }
-    
+
     @Test
     public void should_return_factors_for_6() {
         List<Integer> expectedList = new ArrayList<Integer>();
@@ -52,6 +52,11 @@ public class PerfectNumberTest {
         expectedList.add(3);
         expectedList.add(2);
         assertEquals(expectedList, perfectNumber.factorFor(6));
+    }
+    
+    @Test
+    public void should_return_false_when_7_is_passed() {
+        assertFalse(perfectNumber.isPerfectNumber(7));
     }
 
 }
