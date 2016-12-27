@@ -3,8 +3,6 @@ package exercise5;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +42,16 @@ public class PerfectNumberTest {
         List<Integer> expectedList = new ArrayList<Integer>();
         expectedList.add(1);
         assertEquals(expectedList, perfectNumber.factorFor(1));
+    }
+    
+    @Test
+    public void should_return_factors_for_6() {
+        List<Integer> expectedList = new ArrayList<Integer>();
+        expectedList.add(1);
+        expectedList.add(6);
+        expectedList.add(3);
+        expectedList.add(2);
+        assertEquals(expectedList, perfectNumber.factorFor(6));
     }
 
 }
