@@ -1,5 +1,6 @@
 package exercise5;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PerfectNumber {
@@ -13,7 +14,9 @@ public class PerfectNumber {
     }
 
     public List<Integer> factorFor(int number) {
-        return null;
+        List<Integer> factors = new ArrayList<Integer>();
+        factors.add(1);
+        return factors;
     }
 
 }
