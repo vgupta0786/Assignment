@@ -14,8 +14,15 @@ public class PerfectNumber {
     }
 
     public List<Integer> factorFor(int number) {
+        int factor = 1;
         List<Integer> factors = new ArrayList<Integer>();
         factors.add(1);
+        while(factor <= number/2){
+            if(isFactor(factor,number)){
+                factors.add(number/factor);
+            }
+            factor++;
+        }
         return factors;
     }
 
