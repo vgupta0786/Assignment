@@ -12,4 +12,10 @@ public class NumberToWordShould {
         assertEquals("zero", convert.numberToWord(0));
     }
 
+    @Test
+    public void print_one_when_1_is_passed() {
+        NumberToWord convert = new NumberToWord();
+        assertEquals("one", convert.numberToWord(1));
+    }
+
 }
