@@ -6,14 +6,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class NumberToWordShould {
-    
+
     private NumberToWord convert;
-    
+
     @Before
     public void setUp() {
         convert = new NumberToWord();
     }
-    
+
     @Test
     public void print_zero_when_0_is_passed() {
         assertEquals("zero", convert.numberToWord(0));
@@ -25,8 +25,7 @@ public class NumberToWordShould {
     }
     
     @Test
-    public void print_two_when_2_is_passed() {
-        assertEquals("two", convert.numberToWord(2));
+    public void print_seven_when_7_is_passed() {
+        assertEquals("seven", convert.numberToWord(7));
     }
-
 }
