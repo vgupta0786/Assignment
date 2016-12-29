@@ -23,9 +23,15 @@ public class NumberToWordShould {
     public void print_one_when_1_is_passed() {
         assertEquals("one", convert.numberToWord(1));
     }
-    
+
     @Test
     public void print_seven_when_7_is_passed() {
         assertEquals("seven", convert.numberToWord(7));
     }
+    
+    @Test
+    public void print_nineteen_when_19_is_passed() {
+        assertEquals("nineteen", convert.numberToWord(19));
+    }
+
 }
