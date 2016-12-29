@@ -14,7 +14,7 @@ public class Convertor {
 
     public String numberToWord(int number) {
 
-        if (number == 21) {
+        if (number>=21 && number<=29) {
             StringBuilder builder = new StringBuilder(50);
             builder.append(Convertor.TWENTY);
             builder.append(numToWordList.get(number % 10));
