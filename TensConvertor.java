@@ -11,13 +11,17 @@ public class TensConvertor extends OnesConvertor implements Convertor {
 
     public String numberToWord(int number) {
         StringBuilder builder = new StringBuilder(50);
-        if (number >= 11 && number <= 19) {
+        if (isBetween(number)) {
             builder.append(onesList.get(number));
         } else {
             builder.append(tensList.get(number / 10));
             builder.append(onesList.get(number % 10));
         }
         return builder.toString();
+    }
+
+    boolean isBetween(int number) {
+        return number >= 11 && number <= 19;
     }
 
 }

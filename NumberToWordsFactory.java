@@ -1,14 +1,15 @@
 package cleancode;
 
+import static java.util.Arrays.asList;
+
+import java.util.List;
+
 public class NumberToWordsFactory {
 
-    public Convertor createInstance(int numberLength) {
-        if (numberLength == 3)
-            return new HunderedsConvertor();
-        else if (numberLength == 2)
-            return new TensConvertor();
-        else
-            return new OnesConvertor();
+    List<Convertor> onesList = asList(null, new OnesConvertor(), new TensConvertor(),
+            new HunderedsConvertor());
 
+    public Convertor getInstance(int numberLength) {
+        return onesList.get(numberLength);
     }
 }
