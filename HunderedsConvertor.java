@@ -6,7 +6,9 @@ public class HunderedsConvertor extends TensConvertor implements Convertor {
 
     @Override
     public String numberToWord(int number) {
-        return super.numberToWord(number / 100) + HUNDERED + super.numberToWord(number % 100);
+        String preWord = super.numberToWord(number / 100);
+        String postWord = super.numberToWord(number % 100);
+        return "".equals(preWord) ? postWord : preWord + HUNDERED + postWord;
     }
 
 }
