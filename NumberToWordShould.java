@@ -43,5 +43,10 @@ public class NumberToWordShould {
     public void print_twentynine_when_29_is_passed() {
         assertEquals("twentynine", convert.numberToWord(29));
     }
+    
+    @Test
+    public void print_thirty_when_30_is_passed() {
+        assertEquals("thirty", convert.numberToWord(30));
+    }
 
 }
