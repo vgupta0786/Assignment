@@ -63,5 +63,11 @@ public class NumberToWordShould {
     public void print_onethousandninetynine_when_1099_is_passed() {
         assertEquals("one thousand ninetynine", convert.numberToWord(1099));
     }
+    
+    @Test
+    public void print_ninethousandninehunderedninetynine_when_9999_is_passed() {
+        assertEquals("nine thousand nine hundered ninetynine", convert.numberToWord(9999));
+    }
+
 
 }
