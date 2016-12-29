@@ -48,15 +48,20 @@ public class NumberToWordShould {
     public void print_thirty_when_30_is_passed() {
         assertEquals("thirty", convert.numberToWord(30));
     }
-    
+
     @Test
     public void print_ninetynine_when_99_is_passed() {
         assertEquals("ninetynine", convert.numberToWord(99));
     }
-    
+
     @Test
     public void print_onehunderedninetynine_when_199_is_passed() {
         assertEquals("one hundered ninetynine", convert.numberToWord(199));
+    }
+
+    @Test
+    public void print_onethousandninetynine_when_1099_is_passed() {
+        assertEquals("one thousand ninetynine", convert.numberToWord(1099));
     }
 
 }
