@@ -3,8 +3,9 @@ package cleancode;
 public class NumberToWord {
 
     public String numberToWord(int number) {
-        Convertor numberConvertor = new Convertor();
-        return numberConvertor.numberToWord(number);
+        NumberToWordsFactory factory = new NumberToWordsFactory();
+        Convertor convert = factory.createinstance(number);
+        return convert.numberToWord(number);
     }
 
 }
