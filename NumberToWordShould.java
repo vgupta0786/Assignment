@@ -23,5 +23,10 @@ public class NumberToWordShould {
     public void print_one_when_1_is_passed() {
         assertEquals("one", convert.numberToWord(1));
     }
+    
+    @Test
+    public void print_two_when_2_is_passed() {
+        assertEquals("two", convert.numberToWord(2));
+    }
 
 }
