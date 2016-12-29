@@ -53,5 +53,10 @@ public class NumberToWordShould {
     public void print_ninetynine_when_99_is_passed() {
         assertEquals("ninetynine", convert.numberToWord(99));
     }
+    
+    @Test
+    public void print_onehunderedninetynine_when_199_is_passed() {
+        assertEquals("one hundered ninetynine", convert.numberToWord(199));
+    }
 
 }
