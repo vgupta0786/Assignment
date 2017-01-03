@@ -1,7 +1,9 @@
 package cleancode;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CheckOut {
 
@@ -19,8 +21,17 @@ public class CheckOut {
     }
 
     private void setItemInfo(String item) {
+        //map consist of item name and quantity
+        Map<String, Integer> itemCount = new HashMap<>();
+        if (itemCount.containsKey(itemName(item))) {
+            // Map already contains the item. Just increment it's count by 1
+            itemCount.put(itemName(item), itemCount.get(itemName(item)) + 1);
+        } else {
+            // Map doesn't have mapping for item. Add one with count = 1
+            itemCount.put(itemName(item), 1);
+        }
         ItemInfo singleItemInfo = new ItemInfo();
-        singleItemInfo.setName(itemName(item));
+        singleItemInfo.setName(itemCount);
         singleItemInfo.setPrice(itemPrice(item));
         cart.add(singleItemInfo);
     }

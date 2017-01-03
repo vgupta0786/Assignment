@@ -1,22 +1,15 @@
 package cleancode;
 
+import java.util.Map;
+
 public class ItemInfo {
-    private String name;
+    private Map<String, Integer> name;
 
-    public ItemInfo() {
-    }
-
-    public ItemInfo(String name, int price) {
-        super();
-        this.name = name;
-        this.price = price;
-    }
-
-    public String getName() {
+    public Map<String, Integer> getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(Map<String, Integer> name) {
         this.name = name;
     }
 
