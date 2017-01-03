@@ -33,4 +33,8 @@ public class CheckOut {
         return Integer.parseInt(item.split(",")[1]);
     }
 
+    public Integer getTotalPrice() {
+        return new Integer(0);
+    }
+
 }
