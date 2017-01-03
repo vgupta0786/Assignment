@@ -21,7 +21,7 @@ public class CheckOut {
     }
 
     private void setItemInfo(String item) {
-        //map consist of item name and quantity
+        // map consist of item name and quantity
         Map<String, Integer> itemCount = new HashMap<>();
         if (itemCount.containsKey(itemName(item))) {
             // Map already contains the item. Just increment it's count by 1
@@ -33,6 +33,8 @@ public class CheckOut {
         ItemInfo singleItemInfo = new ItemInfo();
         singleItemInfo.setName(itemCount);
         singleItemInfo.setPrice(itemPrice(item));
+        singleItemInfo.setOfferQuantity(itemOfferQuantity(item));
+        singleItemInfo.setOfferPrice(itemOfferPrice(item));
         cart.add(singleItemInfo);
     }
 
@@ -44,8 +46,21 @@ public class CheckOut {
         return Integer.parseInt(item.split(",")[1]);
     }
 
+    private int itemOfferQuantity(String item) {
+        return Integer.parseInt(item.split(",")[2]);
+    }
+
+    private int itemOfferPrice(String item) {
+        return Integer.parseInt(item.split(",")[3]);
+    }
+
     public Integer getTotalPrice() {
-        return cart.stream().mapToInt(item -> item.getPrice()).sum();
+        return cart.stream().mapToInt(item -> {
+            if (item.getName().get(0).equals(item.getOfferQuantity()))
+                return item.getOfferPrice();
+            else
+                return item.getPrice();
+        }).sum();
     }
 
 }
