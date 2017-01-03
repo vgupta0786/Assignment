@@ -25,4 +25,11 @@ public class CheckOutShould {
         checkout.scanItem("A,50");
         assertEquals(new Integer(50),checkout.getTotalPrice());
     }
+    
+    @Test
+    public void scan_2_items_and_print_total_price() {
+        CheckOut checkout = new CheckOut();
+        checkout.scanItem("A,50:B,30");
+        assertEquals(new Integer(80),checkout.getTotalPrice());
+    }
 }
