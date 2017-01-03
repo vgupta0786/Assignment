@@ -36,7 +36,7 @@ public class CheckOutShould {
     @Test
     public void scan_3_same_items_and_print_total_offer_price() {
         CheckOut checkout = new CheckOut();
-        checkout.scanItem("A,50,3,130:A,50,3,130:A,50,3,130");
+        checkout.scanItem("A,50,3,130:A,50,3,0:A,50,3,0");
         assertEquals(new Integer(130), checkout.getTotalPrice());
     }
 }
