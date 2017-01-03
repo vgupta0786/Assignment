@@ -34,7 +34,7 @@ public class CheckOut {
     }
 
     public Integer getTotalPrice() {
-        return cart.get(0).getPrice();
+        return cart.stream().mapToInt(item -> item.getPrice()).sum();
     }
 
 }
