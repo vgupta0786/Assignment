@@ -34,7 +34,7 @@ public class CheckOut {
     }
 
     public Integer getTotalPrice() {
-        return new Integer(0);
+        return cart.get(0).getPrice();
     }
 
 }
