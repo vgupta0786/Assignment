@@ -1,14 +1,16 @@
 package cleancode;
 
-public class DiscountedPricingRule extends BasePricingRule implements PricingRule {
+public class DiscountedPricingRule implements PricingRule {
 
+    private int basePrice;
     private int offerQuantity;
     private int offerPrice;
 
     public DiscountedPricingRule() {
     }
 
-    public DiscountedPricingRule(int offerQuantity, int offerPrice) {
+    public DiscountedPricingRule(int basePrice, int offerQuantity, int offerPrice) {
+        this.basePrice=basePrice;
         this.offerQuantity = offerQuantity;
         this.offerPrice = offerPrice;
     }

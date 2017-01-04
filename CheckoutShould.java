@@ -13,15 +13,17 @@ public class CheckoutShould {
 
     @Before
     public void setUp() {
-        checkout = new Checkout();
-        
+        itemA = new Item("A");
         BasePricingRule basePricing = new BasePricingRule(50);
-        DiscountedPricingRule promotion = new DiscountedPricingRule(3, 130);
-        itemA = new Item("A", basePricing, promotion);
-        
+        DiscountedPricingRule discount = new DiscountedPricingRule(50, 3, 130);
+        Promotion promotionA = new Promotion("A", basePricing, discount);
+
+        itemB = new Item("B");
         basePricing = new BasePricingRule(30);
-        promotion = new DiscountedPricingRule(2, 45);
-        itemB = new Item("B", basePricing, promotion);
+        discount = new DiscountedPricingRule(30, 2, 45);
+        Promotion promotionB = new Promotion("B", basePricing, discount);
+
+        checkout = new Checkout(promotionA, promotionB);
     }
 
     @Test
@@ -47,6 +49,11 @@ public class CheckoutShould {
     @Test
     public void print_45_when_B_items_are_passed_twice() {
         assertEquals(new Integer(45), checkout.calculateTotalPrice(itemB, itemB));
+    }
+
+    @Test
+    public void print_180_when_A_items_are_passed_4_times() {
+        assertEquals(new Integer(180), checkout.calculateTotalPrice(itemA, itemA, itemA, itemA));
     }
 
 }
