@@ -15,7 +15,7 @@ public class CheckoutShould {
     public void setUp() {
         checkout = new Checkout();
         itemA = new Item("A", 50, 3, 130);
-        itemB = new Item("B", 30);
+        itemB = new Item("B", 30, 2, 45);
     }
 
     @Test
