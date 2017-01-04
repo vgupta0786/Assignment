@@ -33,4 +33,9 @@ public class CheckoutShould {
         assertEquals(new Integer(80), checkout.calculateTotalPrice(itemA, itemB));
     }
 
+    @Test
+    public void print_130_when_A_items_are_passed_thrice() {
+        assertEquals(new Integer(130), checkout.calculateTotalPrice(itemA, itemA, itemA));
+    }
+
 }
