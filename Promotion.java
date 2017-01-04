@@ -2,23 +2,23 @@ package cleancode;
 
 public class Promotion {
     private String itemCode;
-    private BasePricingRule basePrice;
+    private BasePricingRule price;
     private DiscountedPricingRule discount;
-    
-    public Promotion(String itemCode, BasePricingRule basePrice, DiscountedPricingRule discount) {
+
+    public Promotion(String itemCode, BasePricingRule price, DiscountedPricingRule discount) {
         this.itemCode = itemCode;
-        this.basePrice = basePrice;
+        this.price = price;
         this.discount = discount;
     }
-    
+
     public String getItemCode() {
         return itemCode;
     }
 
     public Integer getPrice(int itemQuantity) {
-        if (discount.getOfferQuantity() == 0
+        if (null==discount || discount.getOfferQuantity() == 0
                 || itemQuantity < discount.getOfferQuantity()) {
-            return basePrice.applyRule(itemQuantity);
+            return price.applyRule(itemQuantity);
         } else {
             return discount.applyRule(itemQuantity);
         }
