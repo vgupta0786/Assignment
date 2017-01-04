@@ -8,7 +8,7 @@ import org.junit.Test;
 public class CheckoutShould {
 
     private Checkout checkout;
-    private Item itemA,itemB,itemD;
+    private Item itemA, itemB, itemD;
 
     @Before
     public void setUp() {
@@ -22,7 +22,11 @@ public class CheckoutShould {
         discount = new DiscountedPricingRule(30, 2, 45);
         Promotion promotionB = new Promotion("B", basePricing, discount);
 
-        checkout = new Checkout(promotionA, promotionB);
+        itemD = new Item("D");
+        basePricing = new BasePricingRule(15);
+        Promotion promotionD = new Promotion("D", basePricing, null);
+
+        checkout = new Checkout(promotionA, promotionB, promotionD);
     }
 
     @Test
@@ -59,6 +63,12 @@ public class CheckoutShould {
     public void print_175_when_3A_and_2B_are_passed() {
         assertEquals(new Integer(175),
                 checkout.calculateTotalPrice(itemA, itemA, itemA, itemB, itemB));
+    }
+
+    @Test
+    public void print_175_when_items_are_passed_in_DABABA_sequence() {
+        assertEquals(new Integer(190),
+                checkout.calculateTotalPrice(itemD, itemA, itemB, itemA, itemB, itemA));
     }
 
 }
