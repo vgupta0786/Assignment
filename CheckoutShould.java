@@ -8,8 +8,7 @@ import org.junit.Test;
 public class CheckoutShould {
 
     private Checkout checkout;
-    private Item itemA;
-    private Item itemB;
+    private Item itemA,itemB,itemD;
 
     @Before
     public void setUp() {
@@ -54,6 +53,12 @@ public class CheckoutShould {
     @Test
     public void print_180_when_A_items_are_passed_4_times() {
         assertEquals(new Integer(180), checkout.calculateTotalPrice(itemA, itemA, itemA, itemA));
+    }
+
+    @Test
+    public void print_175_when_3A_and_2B_are_passed() {
+        assertEquals(new Integer(175),
+                checkout.calculateTotalPrice(itemA, itemA, itemA, itemB, itemB));
     }
 
 }
