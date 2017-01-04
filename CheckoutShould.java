@@ -12,4 +12,10 @@ public class CheckoutShould {
         assertEquals(new Integer(50), checkout.calculateTotalPrice("A"));
     }
 
+    @Test
+    public void print_30_when_B_is_passed() {
+        Checkout checkout = new Checkout();
+        assertEquals(new Integer(30), checkout.calculateTotalPrice("B"));
+    }
+
 }
