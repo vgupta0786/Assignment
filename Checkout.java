@@ -3,7 +3,7 @@ package cleancode;
 public class Checkout {
 
     public Integer calculateTotalPrice(String itemCode) {
-        return new Integer(50);
+        return "B".equals(itemCode) ? new Integer(30) : new Integer(50);
     }
 
 }
