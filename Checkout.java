@@ -1,42 +1,48 @@
 package cleancode;
 
-import static java.util.Arrays.asList;
-import static java.util.stream.Collectors.summingInt;
-import static java.util.stream.Collectors.toMap;
-
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class Checkout {
 
-    private List<Promotion> promotions;
+    private List<Item> items;
+    private List<Offer> offers;
+    private PromotionUtil promotionProcessor;
 
-    public Checkout(Promotion... promotions) {
-        this.promotions = asList(promotions);
+    public Integer getFinalPrice(List<Item> items, List<Offer> offers) {
+        List<Item> tempItemList = items;
+        List<Offer> tempOfferList = offers;
+        Integer tempBestOfferIndex = -1;
+        Integer finalPrice = 0;
+        Map<String, Object> processedItemMap = new HashMap<>();
+        Offer tempBestOffer = null;
+        while (tempItemList.size() > 0) {
+            if (tempOfferList != null && offers.size() > -1) {
+                tempBestOfferIndex = promotionProcessor.getBestOfferIndex(offers);
+                if (tempBestOfferIndex > -1) {
+                    processedItemMap = promotionProcessor.applyOffer(tempItemList,
+                            tempOfferList.get(tempBestOfferIndex));
+                    finalPrice += (Integer) processedItemMap
+                            .get(PromotionConstant.CALCULATED_PRICE);
+                    tempItemList = (List<Item>) processedItemMap
+                            .get(PromotionConstant.UNPROCESSED_ITEM_LIST);
+                }
+                tempOfferList.remove(tempBestOfferIndex);
+            } else {
+                finalPrice = promotionProcessor.calculateCostAtBasePrice(tempItemList);
+            }
+
+        }
+        return finalPrice;
     }
 
-    public Integer calculateTotalPrice(Item... items) {
-        asList(items).stream().forEach(item -> item.countItems(item.getItemCode()));
-
-        Set<Item> uniqueItems = new HashSet<>(asList(items));
-
-        Map<String, Promotion> itemPromotions = promotions.stream().collect(
-                toMap(Promotion::getItemCode, promotion -> promotion));
-
-        return uniqueItems.stream().collect(summingInt(item -> getItemPrice(itemPromotions, item)));
-
+    public List<Offer> getOffers() {
+        return offers;
     }
 
-    private Integer getItemPrice(Map<String, Promotion> itemPromotions, Item item) {
-        return getItemPromotions(itemPromotions, item).getPrice(
-                item.getItemQuantity(item.getItemCode()));
-    }
-
-    private Promotion getItemPromotions(Map<String, Promotion> itemPromotions, Item item) {
-        return itemPromotions.get(item.getItemCode());
-
+    public void setOffers(List<Offer> offers) {
+        this.offers = offers;
     }
 
 }
