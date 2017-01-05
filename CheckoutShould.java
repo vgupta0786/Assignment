@@ -70,5 +70,11 @@ public class CheckoutShould {
         assertEquals(new Integer(190),
                 checkout.calculateTotalPrice(itemD, itemA, itemB, itemA, itemB, itemA));
     }
+	
+    @Test
+    public void print_70_when_items_A_and_B_are_passed() {
+        assertEquals(new Integer(70), checkout.calculateTotalPrice(itemA, itemB));
+    }
+
 
 }
