@@ -2,79 +2,134 @@ package cleancode;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
 public class CheckoutShould {
 
     private Checkout checkout;
-    private Item itemA, itemB, itemD;
+    List<Item> itemList;
+    List<Offer> offerList;
+
+    private Item itemA, itemB, itemC, itemD;
 
     @Before
     public void setUp() {
-        itemA = new Item("A");
-        BasePricingRule basePricing = new BasePricingRule(50);
-        DiscountedPricingRule discount = new DiscountedPricingRule(50, 3, 130);
-        Promotion promotionA = new Promotion("A", basePricing, discount);
+        checkout = new Checkout();
+        itemList = new ArrayList<>();
+        itemA = new Item("A", 50);
+        itemB = new Item("B", 30);
+        itemC = new Item("C", 20);
+        itemD = new Item("D", 15);
 
-        itemB = new Item("B");
-        basePricing = new BasePricingRule(30);
-        discount = new DiscountedPricingRule(30, 2, 45);
-        Promotion promotionB = new Promotion("B", basePricing, discount);
+        offerList = new ArrayList<>();
 
-        itemD = new Item("D");
-        basePricing = new BasePricingRule(15);
-        Promotion promotionD = new Promotion("D", basePricing, null);
+        List<Item> discountedItems = new ArrayList<>();
+        discountedItems.add(itemA);
+        discountedItems.add(itemA);
+        discountedItems.add(itemA);
+        Offer offer = new Offer();
+        offer.setDiscountedItems(discountedItems);
+        offer.setPrice(130);
+        offerList.add(offer);
 
-        checkout = new Checkout(promotionA, promotionB, promotionD);
+        discountedItems = new ArrayList<>();
+        discountedItems.add(itemB);
+        discountedItems.add(itemB);
+        offer = new Offer();
+        offer.setDiscountedItems(discountedItems);
+        offer.setPrice(45);
+        offerList.add(offer);
+
+        discountedItems = new ArrayList<>();
+        discountedItems.add(itemA);
+        discountedItems.add(itemB);
+        offer = new Offer();
+        offer.setDiscountedItems(discountedItems);
+        offer.setPrice(70);
+        offerList.add(offer);
+
+        discountedItems = new ArrayList<>();
+        discountedItems.add(itemB);
+        discountedItems.add(itemC);
+        offer = new Offer();
+        offer.setDiscountedItems(discountedItems);
+        offer.setPrice(45);
+        offerList.add(offer);
     }
 
     @Test
     public void print_50_when_A_is_passed() {
-        assertEquals(new Integer(50), checkout.calculateTotalPrice(itemA));
+        itemList.add(itemA);
+        assertEquals(new Integer(50), checkout.getFinalPrice(itemList, offerList));
     }
 
     @Test
     public void print_30_when_B_is_passed() {
-        assertEquals(new Integer(30), checkout.calculateTotalPrice(itemB));
+        itemList.add(itemB);
+        assertEquals(new Integer(30), checkout.getFinalPrice(itemList, offerList));
     }
 
     @Test
-    public void print_80_when_A_and_B_both_passed() {
-        assertEquals(new Integer(80), checkout.calculateTotalPrice(itemA, itemB));
+    public void print_70_when_A_and_B_both_passed() {
+        itemList.add(itemA);
+        itemList.add(itemB);
+        assertEquals(new Integer(70), checkout.getFinalPrice(itemList, offerList));
     }
 
     @Test
     public void print_130_when_A_items_are_passed_thrice() {
-        assertEquals(new Integer(130), checkout.calculateTotalPrice(itemA, itemA, itemA));
+        itemList.add(itemA);
+        itemList.add(itemA);
+        itemList.add(itemA);
+        assertEquals(new Integer(130), checkout.getFinalPrice(itemList, offerList));
     }
 
     @Test
     public void print_45_when_B_items_are_passed_twice() {
-        assertEquals(new Integer(45), checkout.calculateTotalPrice(itemB, itemB));
+        itemList.add(itemB);
+        itemList.add(itemB);
+        assertEquals(new Integer(45), checkout.getFinalPrice(itemList, offerList));
     }
 
     @Test
     public void print_180_when_A_items_are_passed_4_times() {
-        assertEquals(new Integer(180), checkout.calculateTotalPrice(itemA, itemA, itemA, itemA));
+        itemList.add(itemA);
+        itemList.add(itemA);
+        itemList.add(itemA);
+        itemList.add(itemA);
+        assertEquals(new Integer(180), checkout.getFinalPrice(itemList, offerList));
     }
 
     @Test
-    public void print_175_when_3A_and_2B_are_passed() {
-        assertEquals(new Integer(175),
-                checkout.calculateTotalPrice(itemA, itemA, itemA, itemB, itemB));
+    public void print_190_when_3A_and_2B_are_passed() {
+        itemList.add(itemA);
+        itemList.add(itemA);
+        itemList.add(itemA);
+        itemList.add(itemB);
+        itemList.add(itemB);
+        assertEquals(new Integer(190), checkout.getFinalPrice(itemList, offerList));
     }
 
     @Test
-    public void print_175_when_items_are_passed_in_DABABA_sequence() {
-        assertEquals(new Integer(190),
-                checkout.calculateTotalPrice(itemD, itemA, itemB, itemA, itemB, itemA));
+    public void print_215_when_items_are_passed_in_DABABA_sequence() {
+        itemList.add(itemD);
+        itemList.add(itemA);
+        itemList.add(itemB);
+        itemList.add(itemA);
+        itemList.add(itemB);
+        itemList.add(itemA);
+        assertEquals(new Integer(215), checkout.getFinalPrice(itemList, offerList));
     }
-	
+
     @Test
     public void print_70_when_items_A_and_B_are_passed() {
-        assertEquals(new Integer(70), checkout.calculateTotalPrice(itemA, itemB));
+        itemList.add(itemA);
+        itemList.add(itemB);
+        assertEquals(new Integer(70), checkout.getFinalPrice(itemList, offerList));
     }
-
 
 }
