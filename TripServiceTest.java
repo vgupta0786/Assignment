@@ -39,7 +39,7 @@ public class TripServiceTest {
 
     @Test(expected = UserNotLoggedInException.class)
     public void throw_user_not_logged_exception_when_logged_user_is_null() throws Exception {
-        tripService.getTripsByUser(any(User.class), null);
+        tripService.getfriendTrips(any(User.class), null);
     }
 
     @Test
@@ -48,14 +48,14 @@ public class TripServiceTest {
         user.addFriend(loggedUser);
         when(TripDAO.class, "findTripsByUser", any(User.class)).thenReturn(
                 unmodifiableList(asList(new Trip())));
-        assertEquals(1, tripService.getTripsByUser(user, loggedUser).size());
+        assertEquals(1, tripService.getfriendTrips(user, loggedUser).size());
     }
 
     @Test
     public void return_no_trips_when_logged_user_is_not_a_friend() throws Exception {
         when(TripDAO.class, "findTripsByUser", any(User.class)).thenReturn(
                 unmodifiableList(asList(new Trip())));
-        assertEquals(0, tripService.getTripsByUser(new User(), loggedUser).size());
+        assertEquals(0, tripService.getfriendTrips(new User(), loggedUser).size());
     }
 
 }
