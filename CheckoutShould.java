@@ -105,24 +105,24 @@ public class CheckoutShould {
     }
 
     @Test
-    public void print_190_when_3A_and_2B_are_passed() {
+    public void print_175_when_3A_and_2B_are_passed() {
         itemList.add(itemA);
         itemList.add(itemA);
         itemList.add(itemA);
         itemList.add(itemB);
         itemList.add(itemB);
-        assertEquals(new Integer(190), checkout.getFinalPrice(itemList, offerList));
+        assertEquals(new Integer(175), checkout.getFinalPrice(itemList, offerList));
     }
 
     @Test
-    public void print_215_when_items_are_passed_in_DABABA_sequence() {
+    public void print_190_when_items_are_passed_in_DABABA_sequence() {
         itemList.add(itemD);
         itemList.add(itemA);
         itemList.add(itemB);
         itemList.add(itemA);
         itemList.add(itemB);
         itemList.add(itemA);
-        assertEquals(new Integer(215), checkout.getFinalPrice(itemList, offerList));
+        assertEquals(new Integer(190), checkout.getFinalPrice(itemList, offerList));
     }
 
     @Test
